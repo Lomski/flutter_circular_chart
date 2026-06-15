@@ -75,7 +75,7 @@ class _AnimatedRadialChartExampleState extends State<AnimatedRadialChartExample>
   @override
   Widget build(BuildContext context) {
     TextStyle _labelStyle =
-        Theme.of(context).textTheme.headline6!.merge(TextStyle(color: labelColor));
+        Theme.of(context).textTheme.titleLarge!.merge(TextStyle(color: labelColor));
 
     return Scaffold(
       appBar: AppBar(
@@ -98,19 +98,27 @@ class _AnimatedRadialChartExampleState extends State<AnimatedRadialChartExample>
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
-              RaisedButton(
+              ElevatedButton(
                 onPressed: _decrement,
                 child: const Icon(Icons.remove),
-                shape: const CircleBorder(),
-                color: Colors.red[200],
-                textColor: Colors.white,
+                style: ButtonStyle(
+                  padding: WidgetStateProperty.all<EdgeInsets>(EdgeInsets.zero),
+                  elevation: WidgetStateProperty.all<double>(0),
+                  backgroundColor: WidgetStateProperty.all<Color>(Color(0xFFEF9A9A)),
+                  foregroundColor: WidgetStateProperty.all<Color>(Colors.white),
+                  shape: WidgetStateProperty.all(const CircleBorder()),
+                ),
               ),
-              RaisedButton(
+              ElevatedButton(
                 onPressed: _increment,
                 child: const Icon(Icons.add),
-                shape: const CircleBorder(),
-                color: Colors.blue[200],
-                textColor: Colors.white,
+                style: ButtonStyle(
+                  padding: WidgetStateProperty.all<EdgeInsets>(EdgeInsets.zero),
+                  elevation: WidgetStateProperty.all<double>(0),
+                  backgroundColor: WidgetStateProperty.all<Color>(Color(0xFF90CAF9)),
+                  foregroundColor: WidgetStateProperty.all<Color>(Colors.white),
+                  shape: WidgetStateProperty.all(const CircleBorder()),
+                ),
               ),
             ],
           ),
